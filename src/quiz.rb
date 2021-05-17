@@ -6,25 +6,25 @@ class Quiz
     end 
 end 
 
-p1 = "Ruby is an object-oriented programming language"
-p2 = "HTML stands for HyperTyped Markup Language"
-p3 = "In FlexBox, Justified Content defines how to position elements vertically"
-p4 = 
-p5 = 
-p6 = 
-p7 = 
-p8 = 
+q1 = "Ruby is an object-oriented programming language"
+q2 = "HTML stands for HyperTyped Markup Language"
+q3 = "In FlexBox, Justified Content defines how to position elements vertically"
+q4 = "The Git Command 'git remote show origin' allows you see more information about a remote repo"
+q5 = "Subresource Integrity is a security feature that prevents files from being manipulated"
+q6 = "The comparable mixin '<=>' compares values on either side of it and can be used to sort values"
+q7 = "In Ruby, you can access variables in a method from outside of that method"
+q8 = "In HTML, the textarea element is used to create a checkbox in a form"
 
 
 questions = [
-    Quiz.new(p1, "true"),
-    Quiz.new(p2, "false"),
-    Quiz.new(p3, "false"),
-    Quiz.new(p4, "yes"),
-    Quiz.new(p5, "yes"),
-    Quiz.new(p6, "yes"),
-    Quiz.new(p7, "yes"),
-    Quiz.new(p8, "yes")
+    Quiz.new(q1, "true"),
+    Quiz.new(q2, "false"),
+    Quiz.new(q3, "false"),
+    Quiz.new(q4, "true"),
+    Quiz.new(q5, "true"),
+    Quiz.new(q6, "true"),
+    Quiz.new(q7, "false"),
+    Quiz.new(q8, "false")
 ]
 
 def Questionnaire(questions)
@@ -34,14 +34,17 @@ def Questionnaire(questions)
         attempts = attempts || 0
     for question in questions
         puts question.q
-        answer = gets.stip.downcase.to_s
+        answer = gets.strip.downcase.to_s
         if answer == question.a
             score += 1
-        elsif answer != question.a && answer !=is_a?(string)    
-            puts "Invalid answer, please use 'true' or 'false answers."
+        elsif answer != question.a && answer !=is_a?(String)    
+            puts "Invalid answer, please use either 'true' or 'false' answers."
         end 
     end
     return score
 end
 
-Questionnaire(questions)
+score = Questionnaire(questions)
+wallet = score * 50
+
+print wallet 
