@@ -14,11 +14,10 @@ puts arter.asciify("Coder  Detox  Spa !").green
 
 #TTY-Prompt Gem
 require "tty-prompt"
+
 prompt = TTY::Prompt.new
 answer = prompt.select("How can we help you today?\n\n", %w(Treatments\ Available Create\ Booking Change\ Booking\  Check\ Booking))
-puts answer
 
-loop do
     case answer
     when "Treatments Available"
         require_relative "treatments.rb"
@@ -28,7 +27,4 @@ loop do
         require_relative "bookings.rb"
     when "Check Booking"
         require_relative "bookings.rb"
-    else
-      break # break loop
     end
-  end
