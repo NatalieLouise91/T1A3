@@ -37,8 +37,10 @@ def Questionnaire(questions)
         answer = gets.strip.downcase.to_s
         if answer == question.a
             score += 1
-        elsif answer != question.a && answer !=is_a?(String)    
-            puts "Invalid answer, please use either 'true' or 'false' answers."
+        elsif answer != question.a && answer =is_a?(String)
+            puts "Sorry, your answer is incorrect."
+        elsif answer !=is_a?(String)
+            puts "Please use either 'true' or 'false' answers."
         end 
     end
     return score
