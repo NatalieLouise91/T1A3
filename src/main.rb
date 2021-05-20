@@ -1,3 +1,14 @@
+# Empty name string error message 
+class InvalidNameError < StandardError
+end 
+
+def validate_name(name)
+    name = name.strip
+    raise InvalidNameError, "Name must not be empty" if name.empty?
+    name
+end 
+validate_name 
+
 require "tty-prompt"
 
 puts "Coder Detox Spa!"
