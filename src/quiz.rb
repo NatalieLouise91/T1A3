@@ -97,8 +97,6 @@ wallet = Questionnaire(questions)
 
 require "Lolize/auto"
 arter = Artii::Base.new
-colorizer = Lolize::Colorizer.new
-puts arter.asciify(colorizer.write"Congratulations!")
+puts arter.asciify("Congratulations!")
 arter = Artii::Base.new
-colorizer = Lolize::Colorizer.new
-puts arter.asciify(colorizer.write"You have earned #{wallet} spa points.")
+puts arter.asciify("You have earned #{wallet} spa points.")
