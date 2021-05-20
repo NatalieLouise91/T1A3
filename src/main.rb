@@ -1,19 +1,19 @@
+require "tty-prompt"
+
 # Empty name string error message 
 class InvalidNameError < StandardError
 end 
 
-def validate_name(name)
+def valid_name(name)
     name = name.strip
     raise InvalidNameError, "Name must not be empty" if name.empty?
     name
 end 
-validate_name 
-
-require "tty-prompt"
 
 puts "Coder Detox Spa!"
 puts "Please enter your name:"
 name = gets.strip.to_s
+valid_name(name)
 puts "Hello #{name}, welcome to the Coder Detox Spa! You can earn points to use at the Coder Detox Spa by completing a quiz on programming.\n\n"
 
 def main_menu

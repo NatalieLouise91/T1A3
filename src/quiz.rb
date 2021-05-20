@@ -1,4 +1,6 @@
 # require "tty-prompt"
+require "colorize"
+require "artii"
 
 # Error handling 
 
@@ -16,17 +18,6 @@ def invalid_input(answer)
     answer 
 end
 
-# Empty name string error message 
-class InvalidNameError < StandardError
-end 
-
-def validate_name(name)
-    name = name.strip
-    raise InvalidNameError, "Name must not be empty" if name.empty?
-    name
-end 
-validate_name 
-
 # Quiz class to hold blueprint for questions, answers and score
 
 class Quiz 
@@ -41,14 +32,14 @@ end
 
 # Question variables 
 
-q1 = "Ruby is an object-oriented programming language."
-q2 = "HTML stands for HyperTyped Markup Language"
-q3 = "In FlexBox, Justified Content defines how to position elements vertically"
-q4 = "The Git Command 'git remote show origin' allows you see more information about a remote repo"
-q5 = "Subresource Integrity is a security feature that prevents files from being manipulated"
-q6 = "The comparable mixin '<=>' compares values on either side of it and can be used to sort values"
-q7 = "In Ruby, you can access variables in a method from outside of that method"
-q8 = "In HTML, the textarea element is used to create a checkbox in a form"
+q1 = "Ruby is an object-oriented programming language.".green
+q2 = "HTML stands for HyperTyped Markup Language".green
+q3 = "In FlexBox, Justified Content defines how to position elements vertically".green
+q4 = "The Git Command 'git remote show origin' allows you see more information about a remote repo".green
+q5 = "Subresource Integrity is a security feature that prevents files from being manipulated".green
+q6 = "The comparable mixin '<=>' compares values on either side of it and can be used to sort values".green
+q7 = "In Ruby, you can access variables in a method from outside of that method".green
+q8 = "In HTML, the textarea element is used to create a checkbox in a form".green
 
 # Array of questions which holds new quiz items with corresponding question, answer, incorrect answer and score
 
@@ -65,8 +56,15 @@ questions = [
 
 # Welcoming message & explanation of how to complete the quiz
 
-puts "Welcome to the Programming Quiz!"
-puts "This is a quiz that you can test out your programming knowledge and earn valuable spa points, which can be used at the Coder Detox Spa."
+#Artii Gem
+require "artii"
+arter = Artii::Base.new
+puts arter.asciify("Welcome to the Programming Quiz!").blue
+
+puts "This is a quiz that you can take to test out your programming knowledge and earn valuable spa points, which can be used at the Coder Detox Spa.\n\n".light_blue
+puts "You will be presented with a statement on a number of programming concepts, in which you will have provide a response.\n. 
+If you believe a statement is correct, please type in 'true'.\n 
+On the other hand, if you believe a statement to be incorrect, please type in 'false'.\n\n".light_blue
 
 # Questionnaire method which loops through Questions array and conditionally assigns points
 
@@ -96,6 +94,11 @@ def Questionnaire(questions)
 end
 
 wallet = Questionnaire(questions)
-puts wallet
 
- 
+require "Lolize/auto"
+arter = Artii::Base.new
+colorizer = Lolize::Colorizer.new
+puts arter.asciify(colorizer.write"Congratulations!")
+arter = Artii::Base.new
+colorizer = Lolize::Colorizer.new
+puts arter.asciify(colorizer.write"You have earned #{wallet} spa points.")
