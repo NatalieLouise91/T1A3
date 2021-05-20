@@ -1,41 +1,4 @@
-=begin 
-class Treatment
-    attr_accessor :t
-    def initialize(t)
-        @t = t
-    end 
-end 
-
-t1 = {name: "A Tasty Treat", description:"When tackling coding challenges, nutrition is important to sustain you. 
-    This Tasty Treat includes a selection of healthy coder snacks such as:
-    - almonds
-    - dark chocolate
-    - copious amounts of strong organic coffee.", price: 50},
-t2 = {name: "Detox Facial", description:"You will immediately feel calm and refreshed after this facial. The Detox Facial includes:
-    -  a one-hour de-stressing facial
-    -  a tasty treat snack", price: 150},
-t3 = {name: "New Hair, Who Dis?", description:"Sit back, relax and enjoy a relaxing hair and scalp treatment. Your coder friends won't be able to recognise you after this haircut. You will be the envy of the entire class. New Hair, Who Dis includes:
-    - a haircut
-    - a choice of vibrant hairdye
-    - a tasty treat snack", price: 200},
-t4 = {name: "Coder Special", description:"The Coder Special is an hour long treatment which includes:
-    - a hand massage, which allows you to increase your typing speed and accuracy by 20%
-    - a scalp massage, which allows you to complete a sprint without feeling any fatigue
-    - a tasty treat snack", price: 300},
-t5 = {name: "Stack Overflow Enlightenment", description:"This is the Crème de la Crème of our spa treatments. 
-    The treatment includes a four-hour mindfulness meditation session to get you in the right headspace for the next time you need to tackle a difficult ed challenge. 
-    After the treatment, you will be immediately revitalised and will be able to find the solution to the ed challenge on your first google attempt.", price: 400}
-
-
-treatments = [
-    Treatment.new(t1),
-    Treatment.new(t2),
-    Treatment.new(t3),
-    Treatment.new(t4),
-    Treatment.new(t5)
-]
-=end
-
+require "tty-prompt"
 
 def display_treatments
     require ("colorize")
@@ -77,6 +40,10 @@ def display_treatments
          - a tasty treat snack\n
         After the treatment, you will be immediately revitalised and will be able to find the solution to the ed challenge on your first google attempt.\n", 
         price: 400}
+
+        prompt = TTY::Prompt.new
+        answer = prompt.select("Which treatment would you like to view?\n\n", %w(Full\ List\ of\ Treatments A\ Tasty\ Treat Detox\ Facial New\ Hair,\ Who\ Dis? Coder\ Special\ Stack\ Overflow\ Enlightenment))
+        
 
         #iterate over the treatments array to print full list of treatments 
 

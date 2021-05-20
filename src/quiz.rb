@@ -83,10 +83,6 @@ def Questionnaire(questions)
             score += 0
         else
         raise InvalidInputError.new "Invalid input entered. Please use 'true' or 'false' answers."
-        # rescue InvalidInputError => e
-            # puts e.message 
-            # puts e.invalid 
-            # retry
         end 
     end
     end 
@@ -95,7 +91,6 @@ end
 
 wallet = Questionnaire(questions)
 
-require "Lolize/auto"
 arter = Artii::Base.new
 puts arter.asciify("Congratulations!")
 arter = Artii::Base.new

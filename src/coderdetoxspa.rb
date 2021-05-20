@@ -23,8 +23,11 @@ answer = prompt.select("How can we help you today?\n\n", %w(Treatments\ Availabl
         require_relative "treatments.rb"
     when "Create Booking"
         require_relative "bookings.rb"
+        create_booking
     when "Change Booking"
         require_relative "bookings.rb"
+        change_booking
     when "Check Booking"
         require_relative "bookings.rb"
+        check_booking
     end
