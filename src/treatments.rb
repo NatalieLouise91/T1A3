@@ -1,63 +1,80 @@
 require "tty-prompt"
 
-def display_treatments
-    require ("colorize")
-    treatments = []
-    # add each treatment hash to treatments array
-    treatments << treatment1 = {
-        name: "A Tasty Treat\n".green, 
-        description:"When tackling coding challenges, nutrition is important to sustain you.\n 
+class Treatment
+    attr_accessor :name, :description, :price
+    def initialize(name, description, price)
+        @name = name
+        @description = description
+        @price = price
+    end 
+end 
+
+treatment1 = Treatment.new(
+    "A Tasty Treat", 
+    "When tackling coding challenges, nutrition is important to sustain you.\n 
         This Tasty Treat includes a selection of healthy coder snacks such as:\n
         - almonds\n
         - dark chocolate\n
         - copious amounts of strong organic coffee.\n", 
-        price: 50}
-    treatments << treatment2 = {
-        name: "Detox Facial\n".green, 
-        description:"You will immediately feel calm and refreshed after this facial. The Detox Facial includes:\n
-        -  a one-hour de-stressing facial\n
-        -  a tasty treat snack\n", 
-        price: 150}
-    treatments << treatment3 = {
-        name: "New Hair, Who Dis?\n".green, 
-        description:"Sit back, relax and enjoy a relaxing hair and scalp treatment. Your coder friends won't be able to recognise you after this haircut. You will be the envy of the entire class. New Hair, Who Dis includes:\n
+    50)
+treatment2 = Treatment.new(
+    "Detox Facial",
+    "You will immediately feel calm and refreshed after this facial. The Detox Facial includes:\n
+    -  a one-hour de-stressing facial\n
+    -  a tasty treat snack\n", 
+     150)
+treatment3 = Treatment.new(
+    "New Hair, Who Dis?", 
+    "Sit back, relax and enjoy a relaxing hair and scalp treatment. Your coder friends won't be able to recognise you after this haircut. You will be the envy of the entire class. New Hair, Who Dis includes:\n
         - a haircut\n
         - a choice of vibrant hairdye\n
         - a tasty treat snack\n", 
-        price: 200}
-    treatments << treatment4 = {
-        name: "Coder Special\n".green, 
-        description:"The Coder Special is an hour long treatment which includes:\n
+    200)
+treatment4 = Treatment.new(
+    "Coder Special", 
+    "The Coder Special is an hour long treatment which includes:\n
         - a hand massage, which allows you to increase your typing speed and accuracy by 20%\n
         - a scalp massage, which allows you to complete a sprint without feeling any fatigue\n
         - a tasty treat snack\n", 
-        price: 300}
-    treatments << treatment5 = {
-        name: "Stack Overflow Enlightenment\n".green, 
-        description:"This is the Crème de la Crème of our spa treatments.\n 
+    300)
+treatment5 = Treatment.new(
+    "Stack Overflow Enlightenment", 
+    "This is the Crème de la Crème of our spa treatments.\n 
         The treatment includes: \n
          - a four-hour mindfulness meditation session to get you in the right headspace for the next time you need to tackle a difficult ed challenge.\n 
          - a tasty treat snack\n
         After the treatment, you will be immediately revitalised and will be able to find the solution to the ed challenge on your first google attempt.\n", 
-        price: 400}
+    400)
 
-        prompt = TTY::Prompt.new
-        answer = prompt.select("Which treatment would you like to view?\n\n", %w(Full\ List\ of\ Treatments A\ Tasty\ Treat Detox\ Facial New\ Hair,\ Who\ Dis? Coder\ Special\ Stack\ Overflow\ Enlightenment))
-        
+# display_treatments
 
-        #iterate over the treatments array to print full list of treatments 
+prompt = TTY::Prompt.new
+answer = prompt.select("Which treatment would you like to view?\n\n", %w(Full\ List\ of\ Treatments A\ Tasty\ Treat Detox\ Facial New\ Hair,\ Who\ Dis? Coder\ Special\ Stack\ Overflow\ Enlightenment))
 
-    # treatments.each { |treatments| 
-            # puts "Treatment: #{treatments[:name]}\n The Package: #{treatments[:description]}\n The Cost: #{treatments[:price]} spa points\n\n"
-            # } 
-            
-        #select individual treatment 
-            puts "Treatment: #{treatments[0][:name]}\n The Package: #{treatments[0][:description]}\n The Cost: #{treatments[0][:price]} spa points\n\n"
-            puts "Treatment: #{treatments[1][:name]}\n The Package: #{treatments[1][:description]}\n The Cost: #{treatments[1][:price]} spa points\n\n"
-            puts "Treatment: #{treatments[2][:name]}\n The Package: #{treatments[2][:description]}\n The Cost: #{treatments[2][:price]} spa points\n\n"
-            puts "Treatment: #{treatments[3][:name]}\n The Package: #{treatments[3][:description]}\n The Cost: #{treatments[3][:price]} spa points\n\n"
-            puts "Treatment: #{treatments[4][:name]}\n The Package: #{treatments[4][:description]}\n The Cost: #{treatments[4][:price]} spa points\n\n"
-end 
-
-display_treatments
-
+        case answer
+        when "Full List of Treatments"
+            puts "Treatment: #{treatment1.name}\n The Package: #{treatment1.description}\n The Cost: #{treatment1.price} spa points\n\n"
+            puts "Treatment: #{treatment2.name}\n The Package: #{treatment2.description}\n The Cost: #{treatment2.price} spa points\n\n"
+            puts "Treatment: #{treatment3.name}\n The Package: #{treatment3.description}\n The Cost: #{treatment3.price} spa points\n\n"
+            puts "Treatment: #{treatment4.name}\n The Package: #{treatment4.description}\n The Cost: #{treatment4.price} spa points\n\n"
+            puts "Treatment: #{treatment5.name}\n The Package: #{treatment5.description}\n The Cost: #{treatment5.price} spa points\n\n"
+        when "A Tasty Treat"
+            puts "Treatment: #{treatment1.name}\n The Package: #{treatment1.description}\n The Cost: #{treatment1.price} spa points\n\n"
+        when "Detox Facial"
+            puts "Treatment: #{treatment2.name}\n The Package: #{treatment2.description}\n The Cost: #{treatment2.price} spa points\n\n"
+        when "New Hair, Who Dis?"
+            puts "Treatment: #{treatment3.name}\n The Package: #{treatment3.description}\n The Cost: #{treatment3.price} spa points\n\n"
+        when "Coder Special"
+            puts "Treatment: #{treatment4.name}\n The Package: #{treatment4.description}\n The Cost: #{treatment4.price} spa points\n\n"
+        when "Stack Overflow Enlightenment"
+            puts "Treatment: #{treatment5.name}\n The Package: #{treatment5.description}\n The Cost: #{treatment5.price} spa points\n\n"
+        end 
+    
+prompt = TTY::Prompt.new
+answer = prompt.select("Would you like to view another treatment?\n\n", %w(Yes No))
+        case answer
+        when "Yes"
+            put "implement a loop"
+        when "No"
+            puts "Happy a nice day!"
+        end 

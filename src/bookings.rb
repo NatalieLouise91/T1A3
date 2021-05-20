@@ -62,5 +62,8 @@ end
         when "No"
             print "You will keep your booking for #{treatment} on #{day} at #{time}."
         end 
+    end 
 
+    def display_booking
+        puts "Your currently have a booking for #{treatment} on #{day} at #{time}."
     end 
