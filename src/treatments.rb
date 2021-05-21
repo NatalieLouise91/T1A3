@@ -49,8 +49,7 @@ treatment5 = Treatment.new(
 # display_treatments
 
 prompt = TTY::Prompt.new
-answer = prompt.select("Which treatment would you like to view?\n\n", %w(Full\ List\ of\ Treatments A\ Tasty\ Treat Detox\ Facial New\ Hair,\ Who\ Dis? Coder\ Special\ Stack\ Overflow\ Enlightenment))
-
+answer = prompt.select("Which treatment would you like to view?\n\n", %w(Full\ List\ of\ Treatments A\ Tasty\ Treat Detox\ Facial New\ Hair,\ Who\ Dis? Coder\ Special Stack\ Overflow\ Enlightenment Exit))
         case answer
         when "Full List of Treatments"
             puts "Treatment: #{treatment1.name}\n The Package: #{treatment1.description}\n The Cost: #{treatment1.price} spa points\n\n"
@@ -68,13 +67,4 @@ answer = prompt.select("Which treatment would you like to view?\n\n", %w(Full\ L
             puts "Treatment: #{treatment4.name}\n The Package: #{treatment4.description}\n The Cost: #{treatment4.price} spa points\n\n"
         when "Stack Overflow Enlightenment"
             puts "Treatment: #{treatment5.name}\n The Package: #{treatment5.description}\n The Cost: #{treatment5.price} spa points\n\n"
-        end 
-    
-prompt = TTY::Prompt.new
-answer = prompt.select("Would you like to view another treatment?\n\n", %w(Yes No))
-        case answer
-        when "Yes"
-            put "implement a loop"
-        when "No"
-            puts "Happy a nice day!"
         end 

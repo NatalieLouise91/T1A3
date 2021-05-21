@@ -34,7 +34,6 @@ answer = prompt.select("What would you like to do?\n\n", %w(Start\ Quiz Check\ B
     elsif answer == "Check Balance"
         puts "Checking your spa balance"
         puts require_relative "wallet.rb"
-        # return "You currently have #{$wallet} spa points."
     elsif answer == "Enter Coder Detox Spa"
         puts "Loading Coder Detox Spa"
         puts require_relative "coderdetoxspa.rb"
@@ -53,5 +52,15 @@ if answer == "Yes"
 else
     puts "Have a nice day #{name}. I hope you have enjoyed your time at Coder Detox Spa!"   
 end
+
+prompt = TTY::Prompt.new
+answer = prompt.select("Would you like to return to the main menu?\n\n", %w(Yes No))
+
+if answer == "Yes"
+    puts main_menu    
+else
+    puts "Have a nice day #{name}. I hope you have enjoyed your time at Coder Detox Spa!"   
+end
+
 
   puts "Testing. This is the end of input"

@@ -16,18 +16,43 @@ puts arter.asciify("Coder  Detox  Spa !").green
 require "tty-prompt"
 
 prompt = TTY::Prompt.new
-answer = prompt.select("How can we help you today?\n\n", %w(Treatments\ Available Create\ Booking Change\ Booking\  Check\ Booking))
+answer = prompt.select("How can we help you today?\n\n", %w(Treatments\ Available Bookings\ Menu Check\ Spa\ Balance Exit))
 
     case answer
     when "Treatments Available"
         require_relative "treatments.rb"
-    when "Create Booking"
+    when "Bookings Menu"
         require_relative "bookings.rb"
-        create_booking
-    when "Change Booking"
+    when "Check Spa Balance"
+        require_relative "wallet.rb"
+    else 
+        puts "I hope you have enjoyed your time with us today."
+    end
+
+prompt = TTY::Prompt.new
+answer = prompt.select("Was there anything else we could help your with today?\n\n", %w(Treatments\ Available Bookings\ Menu Check\ Spa\ Balance Exit))
+
+    case answer
+    when "Treatments Available"
+        require_relative "treatments.rb"
+    when "Bookings Menu"
         require_relative "bookings.rb"
-        change_booking
-    when "Check Booking"
+    when "Check Spa Balance"
+        require_relative "wallet.rb"
+    else 
+        puts "I hope you have enjoyed your time with us today."
+    end
+
+prompt = TTY::Prompt.new
+answer = prompt.select("Was there anything else we could help your with today?\n\n", %w(Treatments\ Available Bookings\ Menu Check\ Spa\ Balance Exit))
+    
+    case answer
+    when "Treatments Available"
+        require_relative "treatments.rb"
+    when "Bookings Menu"
         require_relative "bookings.rb"
-        check_booking
+    when "Check Spa Balance"
+        puts "You currently have #{$wallet.wallet} spa points."
+    else 
+        puts "I hope you have enjoyed your time with us today."
     end
