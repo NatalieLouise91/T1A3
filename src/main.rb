@@ -1,4 +1,9 @@
+# Gems required 
 require "tty-prompt"
+require "Artii"
+require "colorize"
+
+# Error handling 
 
 # Empty name string error message 
 class InvalidNameError < StandardError
@@ -9,6 +14,8 @@ def valid_name(name)
     raise InvalidNameError, "Name must not be empty" if name.empty?
     name
 end 
+
+# Welcoming user section 
 
 puts "Coder Detox Spa!"
 puts "Please enter your name:"
@@ -27,6 +34,7 @@ answer = prompt.select("What would you like to do?\n\n", %w(Start\ Quiz Check\ B
     elsif answer == "Check Balance"
         puts "Checking your spa balance"
         puts require_relative "wallet.rb"
+        # return "You currently have #{$wallet} spa points."
     elsif answer == "Enter Coder Detox Spa"
         puts "Loading Coder Detox Spa"
         puts require_relative "coderdetoxspa.rb"

@@ -1,7 +1,3 @@
-# require "tty-prompt"
-require "colorize"
-require "artii"
-
 # Error handling 
 
 # invalid input for questionnaire
@@ -91,7 +87,21 @@ end
 
 wallet = Questionnaire(questions)
 
+# Class that can store new spa points
+
+class SpaPoints 
+    attr_accessor :wallet
+    def initialize(wallet)
+        @wallet = wallet
+    end
+end 
+
+wallet = SpaPoints.new(wallet)
+$wallet = wallet
+
+# Final score and congratulations message
+
 arter = Artii::Base.new
 puts arter.asciify("Congratulations!")
 arter = Artii::Base.new
-puts arter.asciify("You have earned #{wallet} spa points.")
+puts arter.asciify("You have earned #{$wallet.wallet} spa points.")

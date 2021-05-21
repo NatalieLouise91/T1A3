@@ -1,2 +1,1 @@
-wallet = 0
-puts "Your currently have #{wallet} spa points."
+ puts "You currently have #{$wallet.wallet} spa points."
