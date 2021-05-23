@@ -10,6 +10,8 @@ class Treatment
     end 
 end 
 
+
+
 treatment1 = Treatment.new(
     "A Tasty Treat", 
     "When tackling coding challenges, nutrition is important to sustain you.\n 
@@ -47,7 +49,7 @@ treatment5 = Treatment.new(
         After the treatment, you will be immediately revitalised and will be able to find the solution to the ed challenge on your first google attempt.\n", 
     400)
 
-# display_treatments
+
 while true
 
 prompt = TTY::Prompt.new

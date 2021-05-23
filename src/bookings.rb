@@ -1,14 +1,14 @@
-# tty-prompt Gem
+# Gems required 
 require "tty-prompt"
-
-#Artii Gem
-require "artii"
-
-#Colorize Gem
-require ("colorize")
-
-#Pastel Gem
+require "Artii"
+require "colorize"
+require "tty-color"
+require "tty-font"
+require "tty-progressbar"
 require "pastel"
+
+require_relative './methods/aesthetics'
+require_relative './methods/userinfo'
 
 class Booking
     attr_accessor :treatment, :day, :time 
