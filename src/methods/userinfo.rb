@@ -5,3 +5,8 @@ def welcome
     puts arter.asciify("Welcome  to  Coder  Detox  Spa !").blue
 end 
 
+#Closing message before application exits
+
+def goodbye
+    puts "Closing application... Farewell...".blue
+end

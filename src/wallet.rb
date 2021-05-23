@@ -1,4 +1,10 @@
-puts "You currently have #{$wallet.wallet} spa points."
+def wallet(wallet)
+    if $wallet.wallet
+    puts "You currently have #{$wallet.wallet} spa points."
+    else 
+    puts "I'm sorry, you do not have any spa points."
+    end
+end
 
  module SpaTransactions
     def buy(num1, num2)
