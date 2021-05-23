@@ -1,3 +1,8 @@
+#required local files
+require 'tty-prompt'
+require_relative './methods/aesthetics'
+require_relative './methods/userinfo'
+
 # Gems required 
 require "tty-prompt"
 require "Artii"
@@ -30,7 +35,7 @@ answer = prompt.select("What would you like to do?\n\n", %w(Start\ Quiz Check\ B
 
     if answer == "Start Quiz"
         puts "Loading Programming Quiz"
-        puts require_relative "quiz.rb"
+        require_relative "quiz.rb"
     elsif answer == "Check Balance"
         puts "Checking your spa balance"
         puts require_relative "wallet.rb"

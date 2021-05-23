@@ -1,4 +1,5 @@
 require "tty-prompt"
+require_relative "./methods/aesthetics.rb"
 
 class Treatment
     attr_accessor :name, :description, :price
@@ -47,9 +48,10 @@ treatment5 = Treatment.new(
     400)
 
 # display_treatments
+while true
 
 prompt = TTY::Prompt.new
-answer = prompt.select("Which treatment would you like to view?\n\n", %w(Full\ List\ of\ Treatments A\ Tasty\ Treat Detox\ Facial New\ Hair,\ Who\ Dis? Coder\ Special Stack\ Overflow\ Enlightenment Exit))
+answer = prompt.select("Which treatment would you like to view?\n\n", %w(Full\ List\ of\ Treatments A\ Tasty\ Treat Detox\ Facial New\ Hair,\ Who\ Dis? Coder\ Special Stack\ Overflow\ Enlightenment Exit)) do
         case answer
         when "Full List of Treatments"
             puts "Treatment: #{treatment1.name}\n The Package: #{treatment1.description}\n The Cost: #{treatment1.price} spa points\n\n"
@@ -68,3 +70,9 @@ answer = prompt.select("Which treatment would you like to view?\n\n", %w(Full\ L
         when "Stack Overflow Enlightenment"
             puts "Treatment: #{treatment5.name}\n The Package: #{treatment5.description}\n The Cost: #{treatment5.price} spa points\n\n"
         end 
+end
+if answer == "Exit"
+    self_clear
+    break
+end
+end 

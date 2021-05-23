@@ -60,7 +60,7 @@ puts arter.asciify("Welcome to the Programming Quiz!").blue
 puts "This is a quiz that you can take to test out your programming knowledge and earn valuable spa points, which can be used at the Coder Detox Spa.\n\n".light_blue
 puts "You will be presented with a statement on a number of programming concepts, in which you will have provide a response.\n. 
 If you believe a statement is correct, please type in 'true'.\n 
-On the other hand, if you believe a statement to be incorrect, please type in 'false'.\n\n".light_blue
+On the other hand, if you believe a statement to be incorrect, please type in 'false'.\n\n".blue
 
 # Questionnaire method which loops through Questions array and conditionally assigns points
 
