@@ -54,21 +54,32 @@ prompt = TTY::Prompt.new
 answer = prompt.select("Which treatment would you like to view?\n\n", %w(Full\ List\ of\ Treatments A\ Tasty\ Treat Detox\ Facial New\ Hair,\ Who\ Dis? Coder\ Special Stack\ Overflow\ Enlightenment Exit)) do
         case answer
         when "Full List of Treatments"
-            puts "Treatment: #{treatment1.name}\n The Package: #{treatment1.description}\n The Cost: #{treatment1.price} spa points\n\n"
-            puts "Treatment: #{treatment2.name}\n The Package: #{treatment2.description}\n The Cost: #{treatment2.price} spa points\n\n"
-            puts "Treatment: #{treatment3.name}\n The Package: #{treatment3.description}\n The Cost: #{treatment3.price} spa points\n\n"
-            puts "Treatment: #{treatment4.name}\n The Package: #{treatment4.description}\n The Cost: #{treatment4.price} spa points\n\n"
-            puts "Treatment: #{treatment5.name}\n The Package: #{treatment5.description}\n The Cost: #{treatment5.price} spa points\n\n"
+            self_clear
+            puts "Treatment: #{treatment1.name}\n\n The Package: #{treatment1.description}\n\n The Cost: #{treatment1.price} spa points\n\n\n"
+            puts "Treatment: #{treatment2.name}\n\n The Package: #{treatment2.description}\n\n The Cost: #{treatment2.price} spa points\n\n\n"
+            puts "Treatment: #{treatment3.name}\n\n The Package: #{treatment3.description}\n\n The Cost: #{treatment3.price} spa points\n\n\n"
+            puts "Treatment: #{treatment4.name}\n\n The Package: #{treatment4.description}\n\n The Cost: #{treatment4.price} spa points\n\n\n"
+            puts "Treatment: #{treatment5.name}\n\n The Package: #{treatment5.description}\n\n The Cost: #{treatment5.price} spa points\n\n\n"
         when "A Tasty Treat"
-            puts "Treatment: #{treatment1.name}\n The Package: #{treatment1.description}\n The Cost: #{treatment1.price} spa points\n\n"
+            self_clear
+            tasty_treat
+            puts "Treatment: #{treatment1.name}\n\n The Package: #{treatment1.description}\n\n The Cost: #{treatment1.price} spa points\n\n\n"
         when "Detox Facial"
-            puts "Treatment: #{treatment2.name}\n The Package: #{treatment2.description}\n The Cost: #{treatment2.price} spa points\n\n"
+            self_clear
+            detox_facial
+            puts "Treatment: #{treatment2.name}\n\n The Package: #{treatment2.description}\n\n The Cost: #{treatment2.price} spa points\n\n\n"
         when "New Hair, Who Dis?"
-            puts "Treatment: #{treatment3.name}\n The Package: #{treatment3.description}\n The Cost: #{treatment3.price} spa points\n\n"
+            self_clear
+            new_hair
+            puts "Treatment: #{treatment3.name}\n\n The Package: #{treatment3.description}\n\n The Cost: #{treatment3.price} spa points\n\n\n"
         when "Coder Special"
-            puts "Treatment: #{treatment4.name}\n The Package: #{treatment4.description}\n The Cost: #{treatment4.price} spa points\n\n"
+            self_clear
+            coder_special
+            puts "Treatment: #{treatment4.name}\n\n The Package: #{treatment4.description}\n\n The Cost: #{treatment4.price} spa points\n\n\n"
         when "Stack Overflow Enlightenment"
-            puts "Treatment: #{treatment5.name}\n The Package: #{treatment5.description}\n The Cost: #{treatment5.price} spa points\n\n"
+            self_clear
+            stack_overflow
+            puts "Treatment: #{treatment5.name}\n\n The Package: #{treatment5.description}\n\n The Cost: #{treatment5.price} spa points\n\n\n"
         end 
 end
 if answer == "Exit"

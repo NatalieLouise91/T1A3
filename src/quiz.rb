@@ -14,6 +14,15 @@ def invalid_input(answer)
     answer 
 end
 
+# Welcoming message & explanation of how to complete the quiz
+
+def quiz_instructions
+    puts "This is a quiz that you can take to test out your programming knowledge and earn valuable spa points, which can be used at the Coder Detox Spa.\n\n".blue
+    puts "You will be presented with a statement on a number of programming concepts, in which you will have provide a response.\n 
+    If you believe a statement is correct, please type in 'true'.\n 
+    On the other hand, if you believe a statement to be incorrect, please type in 'false'.\n\n".blue
+end
+
 # Quiz class to hold blueprint for questions, answers and score
 
 class Quiz 
@@ -49,19 +58,6 @@ questions = [
     Quiz.new(q7, "false", "true", 50),
     Quiz.new(q8, "false", "true", 50)
 ]
-
-# Welcoming message & explanation of how to complete the quiz
-
-#Artii Gem
-require "artii"
-arter = Artii::Base.new
-puts arter.asciify("Welcome to the Programming Quiz!").blue
-
-puts "This is a quiz that you can take to test out your programming knowledge and earn valuable spa points, which can be used at the Coder Detox Spa.\n\n".light_blue
-puts "You will be presented with a statement on a number of programming concepts, in which you will have provide a response.\n. 
-If you believe a statement is correct, please type in 'true'.\n 
-On the other hand, if you believe a statement to be incorrect, please type in 'false'.\n\n".blue
-
 # Questionnaire method which loops through Questions array and conditionally assigns points
 
 def Questionnaire(questions)
@@ -85,7 +81,7 @@ def Questionnaire(questions)
     return score
 end
 
-wallet = Questionnaire(questions)
+#  wallet = Questionnaire(questions)
 
 # Class that can store new spa points
 
@@ -97,11 +93,15 @@ class SpaPoints
 end 
 
 wallet = SpaPoints.new(wallet)
+$wallet = SpaPoints.new(wallet)
 $wallet = wallet
 
 # Final score and congratulations message
+self_clear
 
-arter = Artii::Base.new
-puts arter.asciify("Congratulations!")
-arter = Artii::Base.new
-puts arter.asciify("You have earned #{$wallet.wallet} spa points.")
+def congratulations
+    arter = Artii::Base.new
+    puts arter.asciify("Congratulations!")
+    arter = Artii::Base.new
+    puts arter.asciify("You have earned #{$wallet.wallet} spa points.")
+end 
