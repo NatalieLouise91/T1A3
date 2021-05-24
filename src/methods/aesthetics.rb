@@ -20,7 +20,7 @@ end
 def treatments_heading
     self_clear
     arter = Artii::Base.new
-    puts arter.asciify("Book  Your  Next  Treatment !").blue
+    puts arter.asciify("Available  Treatments !").blue
 end 
 
 # DISPLAY BALANCE
