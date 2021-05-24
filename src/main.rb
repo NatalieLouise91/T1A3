@@ -4,6 +4,7 @@ require "Artii"
 require "colorize"
 require "tty-color"
 require "tty-font"
+require "tty-box"
 require "tty-progressbar"
 require "pastel"
 
@@ -11,7 +12,7 @@ require "pastel"
 require_relative './methods/aesthetics'
 require_relative './methods/userinfo'
 
-# Error handling 
+# -------------------------------------------------------ERROR HANDLING----------------------------------------------------------------------
 
 # Empty name string error message 
 class InvalidNameError < StandardError
@@ -23,6 +24,20 @@ def valid_name(name)
     name
 end 
 
+# invalid input error handling 
+
+class InvalidInputError < StandardError
+    attr_reader :action
+
+    def initialize(msg ="Invalid input entered.")
+        @invalid = invalid
+        super (message)
+    end 
+end 
+def invalid_input(answer)
+    raise InvalidInputError, "Please use 'true' or 'false' answers" 
+    answer 
+end
 
 # ---------------------------------------------------------QUIZ CODE------------------------------------------------------------------------
 
@@ -137,35 +152,36 @@ end
 treatments = [
 
 treatment1 = Treatment.new(
-    "A Tasty Treat", 
+    "A Tasty Treat 🍫".magenta, 
     "When tackling coding challenges, nutrition is important to sustain you.\n 
         This Tasty Treat includes a selection of healthy coder snacks such as:\n
         - almonds\n
         - dark chocolate\n
-        - copious amounts of strong organic coffee.\n", 
+        - copious amounts of strong organic coffee\n", 
     50),
 treatment2 = Treatment.new(
-    "Detox Facial",
+    "Detox Facial 🍫 💆‍".magenta,
     "You will immediately feel calm and refreshed after this facial. The Detox Facial includes:\n
     -  a one-hour de-stressing facial\n
     -  a tasty treat snack\n", 
      150),
 treatment3 = Treatment.new(
-    "New Hair, Who Dis?", 
-    "Sit back, relax and enjoy a relaxing hair and scalp treatment. Your coder friends won't be able to recognise you after this haircut. You will be the envy of the entire class. New Hair, Who Dis includes:\n
+    "New Hair, Who Dis? 🍫 💇‍".magenta, 
+    "Sit back, relax and enjoy a relaxing hair and scalp treatment. Your coder friends won't be able to recognise you after this haircut.\n 
+    You will be the envy of the entire class. New Hair, Who Dis includes:\n
         - a haircut\n
         - a choice of vibrant hairdye\n
         - a tasty treat snack\n", 
     200),
 treatment4 = Treatment.new(
-    "Coder Special", 
+    "Coder Special 🍫 💆‍".magenta, 
     "The Coder Special is an hour long treatment which includes:\n
         - a hand massage, which allows you to increase your typing speed and accuracy by 20%\n
         - a scalp massage, which allows you to complete a sprint without feeling any fatigue\n
         - a tasty treat snack\n", 
     300),
 treatment5 = Treatment.new(
-    "Stack Overflow Enlightenment", 
+    "Stack Overflow Enlightenment 🍫 🧘‍".magenta, 
     "This is the Crème de la Crème of our spa treatments.\n 
         The treatment includes: \n
          - a four-hour mindfulness meditation session to get you in the right headspace for the next time you need to tackle a difficult ed challenge.\n 
@@ -191,7 +207,9 @@ end
 # DISPLAY INDIVIDUAL TREATMENTS METHOD - user can see individual treatments for convenience
 
 def display_individual_treatments(treatment)
-    puts "Treatment: #{treatment.name}\n\n The Package: #{treatment.description}\n\n The Cost: #{treatment.price} spa points\n\n\n"
+    puts "Treatment: #{treatment.name}\n\n".magenta 
+    puts "The Package: #{treatment.description}\n\n" 
+    puts "The Cost: #{treatment.price} spa points\n\n\n".green
 end
 
 # -----------------------------------------------------------------BOOKINGS CODE----------------------------------------------------------------
@@ -219,19 +237,21 @@ welcome_message
 puts "Please enter your name:"
 name = gets.strip.to_s
 valid_name(name)
-puts "Hello #{name}, welcome to the Coder Detox Spa! You can earn points to use at the Coder Detox Spa by completing a quiz on programming.\n\n"
+puts "Hello #{name}, welcome to the Coder Detox Spa! You can earn points to use at the Coder Detox Spa by completing a quiz on programming 🤓.\n\n"
 
+# while true 
+    # puts "Start your journey now" do
 # WHILE LOOP - user can cycle through menu options until they decide to exit application
 while true
 
     prompt = TTY::Prompt.new
-    answer = prompt.select("What would you like to do?\n\n", %w(Start\ Quiz Check\ Balance Treatments\ Available Create\ a\ Booking Change\ Booking Display\ Booking Exit)) do
+    answer = prompt.select("What would you like to do?\n\n", %w(Start\ Quiz  Check\ Balance Treatments\ Available Create\ Booking Change\ Booking Display\ Booking Exit)) do
 
     case answer
     when  "Start Quiz"
             loading_quiz
             self_clear
-            welcome_quiz
+            quiz_header
             quiz_instructions
             wallet = Questionnaire(questions)
             wallet = SpaPoints.new(wallet)
@@ -244,9 +264,9 @@ while true
             self_clear
             display_balance_heading
             if $wallet == nil
-                puts "You don't have any spa points yet."
+                puts "You don't have any spa points yet.\n\n"
             else
-                puts "You currently have #{$wallet.wallet} spa points."
+                puts "You currently have #{$wallet.wallet} spa points.\n\n"
             end
     when   "Treatments Available"
             loading_spa
@@ -257,32 +277,44 @@ while true
                 answer = prompt.select("Which treatment would you like to view?\n\n", %w(Full\ List\ of\ Treatments A\ Tasty\ Treat Detox\ Facial New\ Hair,\ Who\ Dis? Coder\ Special Stack\ Overflow\ Enlightenment Exit)) do
                 if answer == "Full List of Treatments"
                     self_clear
+                    treatment_box
                     display_all_treatments(treatments)
+                    footer_box
                 elsif answer == "A Tasty Treat"
                     self_clear
+                    framing_box_small
                     tasty_treat
                     puts ""
                     display_individual_treatments(treatment1)
+                    framing_box_small
                 elsif answer == "Detox Facial"
                     self_clear
+                    framing_box_small
                     detox_facial
                     puts ""
                     display_individual_treatments(treatment2)
+                    framing_box_small
                 elsif answer == "New Hair, Who Dis?"
                     self_clear
+                    framing_box_small
                     new_hair
                     puts ""
                     display_individual_treatments(treatment3)
+                    framing_box_small
                 elsif answer == "Coder Special"
                     self_clear
+                    framing_box_small
                     coder_special
                     puts ""
                     display_individual_treatments(treatment4)
+                    framing_box_small
                 elsif answer == "Stack Overflow Enlightenment"
                     self_clear
+                    framing_box_small
                     stack_overflow
                     puts ""
                     display_individual_treatments(treatment5)
+                    framing_box_small
                 end 
             end
             if answer == "Exit"
@@ -290,7 +322,7 @@ while true
                 break
             end
             end
-    when  "Create a Booking"
+    when  "Create Booking"
         if owing != nil
         # Create a booking heading
         create_booking_heading
@@ -364,9 +396,8 @@ while true
     end
     end
     if answer == "Exit"
-        goodbye_heading
+        finalise_heading
         puts "Oh no, #{name}. Before you exit, you need to finalise your account!!!" 
-        goodbye_message
         break
     end 
 end  
@@ -418,3 +449,17 @@ end
         break
     end
 end
+
+# # final = prompt.select("Do you wish to exit the application?\n\n", %w(Yes No))
+#     case final 
+#     when "No"
+#         puts "returning back to the main menu"
+#     end
+# end
+#     if final == "Yes"
+#         goodbye_heading
+#         puts "Have a wonderful day, #{name}. I hope you have enjoyed your time at Coder Detox Spa!" 
+#         goodbye_message
+#         break
+#     end
+# end

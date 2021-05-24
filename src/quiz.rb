@@ -1,18 +1,6 @@
 # Error handling 
 
 # invalid input for questionnaire
-class InvalidInputError < StandardError
-    attr_reader :action
-
-    def initialize(msg ="Invalid input entered.")
-        @invalid = invalid
-        super (message)
-    end 
-end 
-def invalid_input(answer)
-    raise InvalidInputError, "Please use 'true' or 'false' answers" 
-    answer 
-end
 
 # Welcoming message & explanation of how to complete the quiz
 
