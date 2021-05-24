@@ -95,13 +95,3 @@ end
 wallet = SpaPoints.new(wallet)
 $wallet = SpaPoints.new(wallet)
 $wallet = wallet
-
-# Final score and congratulations message
-self_clear
-
-def congratulations
-    arter = Artii::Base.new
-    puts arter.asciify("Congratulations!")
-    arter = Artii::Base.new
-    puts arter.asciify("You have earned #{$wallet.wallet} spa points.")
-end 

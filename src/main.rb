@@ -210,12 +210,12 @@ end
 
 #------------------------------------------------------------------BOOKINGS HASH---------------------------------------------------------------------
 booking = {}
-owing = [1]
+owing = []
 # -----------------------------------------------------------------MAIN APPLICATION----------------------------------------------------------------
 
 # Welcoming user section 
 
-puts "Coder Detox Spa!"
+welcome_message
 puts "Please enter your name:"
 name = gets.strip.to_s
 valid_name(name)
@@ -237,9 +237,12 @@ while true
             wallet = SpaPoints.new(wallet)
             $wallet = SpaPoints.new(wallet)
             $wallet = wallet
+            self_clear
             congratulations
     when  "Check Balance"
             loading_balance
+            self_clear
+            display_balance_heading
             if $wallet == nil
                 puts "You don't have any spa points yet."
             else
@@ -248,6 +251,7 @@ while true
     when   "Treatments Available"
             loading_spa
             self_clear
+            treatments_heading
             while true
                 prompt = TTY::Prompt.new
                 answer = prompt.select("Which treatment would you like to view?\n\n", %w(Full\ List\ of\ Treatments A\ Tasty\ Treat Detox\ Facial New\ Hair,\ Who\ Dis? Coder\ Special Stack\ Overflow\ Enlightenment Exit)) do
@@ -310,11 +314,10 @@ while true
             puts "Thank you for waiting #{name}, it appears you already have a booking.\n 
             If you would like to change your booking, please select Change Booking from the main menu."
         end
-        # Booking details are stored in a new class object called booking1 
-        booking1 = Booking.new(booking[:treatment],booking[:day],booking[:time])
-        owing << 100
 
     when  "Display Booking"
+        self_clear
+        display_booking_heading
         if owing != nil
             puts "You currently have a booking for #{booking[:treatment]} on #{booking[:day]} at #{booking[:time]}.\n\n"
         else 
@@ -322,6 +325,7 @@ while true
         end
     when  "Change Booking"
         # Change booking heading
+        self_clear
         change_booking_heading
         if owing != nil
             puts "You currently have a booking for #{booking[:treatment]} on #{booking[:day]} at #{booking[:time]}.\n\n"
@@ -350,9 +354,6 @@ while true
             # New time is store in the bookings hash
             booking[:time] = answer
 
-            # New booking is stored in Booking class object booking2
-            booking2 = Booking.new(booking[:treatment],booking[:day],booking[:time])
-
             # Message to user confirming the change in their booking
             puts "You have now have a new booking for #{booking[:treatment]} on #{booking[:day]} at #{booking[:time]}.\n\n"
             puts "This booking is secured, we look forward to seeing you on #{booking[:day]} at #{booking[:time]}."
@@ -363,10 +364,57 @@ while true
     end
     end
     if answer == "Exit"
-        puts "Have a wonderful day, #{name}. I hope you have enjoyed your time at Coder Detox Spa!" 
+        goodbye_heading
+        puts "Oh no, #{name}. Before you exit, you need to finalise your account!!!" 
         goodbye_message
         break
     end 
 end  
 
-# -----------------------------------------------------------------SPA MENU----------------------------------------------------------------
+# Booking details are stored in a new class object called booking1 
+booking1 = Booking.new(booking[:treatment],booking[:day],booking[:time])
+
+if booking[:treatment] == "A Tasty Treat"
+    owing << treatment1.price
+elsif booking[:treatment] == "Detox Facial"
+    owing << treatment2.price
+elsif booking[:treatment] == "New Hair, Who Dis?"
+    owing << treatment3.price
+elsif booking[:treatment] == "Coder Special"
+    owing << treatment4.price
+elsif booking[:treatment] == "Stack Overflow Enlightenment"
+    owing << treatment5.price
+end
+# -----------------------------------------------------------------CHECKOUT----------------------------------------------------------------
+while true 
+    answer = prompt.select("Please select from the following options:\n\n", %w(Check\ Balance Amount\ Owing Checkout Exit)) do
+
+    case answer
+    when "Check Balance"
+        loading_balance
+        self_clear
+        display_balance_heading
+        if $wallet == nil
+            puts "You don't have any spa points yet."
+        else
+            puts "You currently have #{$wallet.wallet} spa points."
+        end
+    when "Amount Owing"
+        puts "#{name}, you owe #{owing[0]} today"
+    when "Checkout"
+        sum = buy($wallet.wallet, owing[0])
+        if sum < 0
+            puts "Im sorry #{name}, it appears that you do not have enough spa points for this treatment.\n\n"
+            puts "Remember, practice makes perfect #{name}. You can complete the quiz again to earn more spa points."
+        else 
+            puts "Thank you for choosing Coder Detox Spa, #{name}. We look forward to seeing you on #{booking[:day]} at #{booking[:time]}."
+        end 
+    end 
+end
+    if answer == "Exit"
+        goodbye_heading
+        puts "Have a wonderful day, #{name}. I hope you have enjoyed your time at Coder Detox Spa!" 
+        goodbye_message
+        break
+    end
+end

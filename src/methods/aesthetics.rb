@@ -15,16 +15,27 @@ def return_menu
     self_clear
 end
 
-#Artii Ascii Headings
+# ----------------------------------------------------------APPLICATION HEADINGS-------------------------------------------------------------
 
-def bookings_heading
+def treatments_heading
+    self_clear
     arter = Artii::Base.new
     puts arter.asciify("Book  Your  Next  Treatment !").blue
 end 
 
+# DISPLAY BALANCE
+
+def display_balance_heading
+    self_clear
+    font = TTY::Font.new(:starwars)
+    pastel = Pastel.new
+    puts pastel.magenta(font.write("Display Balance", letter_spacing: 1))
+end
+
 # create booking heading
 
 def create_booking_heading
+    self_clear
     font = TTY::Font.new(:starwars)
     pastel = Pastel.new
     puts pastel.magenta(font.write("Create a Booking", letter_spacing: 1))
@@ -33,6 +44,7 @@ end
 # change booking heading
 
 def change_booking_heading
+    self_clear
     font = TTY::Font.new(:starwars)
     pastel = Pastel.new
     puts pastel.magenta(font.write("Change Booking", letter_spacing: 1))
@@ -41,6 +53,7 @@ end
 # display booking heading
 
 def display_booking_heading
+    self_clear
     font = TTY::Font.new(:starwars)
     pastel = Pastel.new
     puts pastel.cyan(font.write("Current Booking", letter_spacing: 1))
@@ -49,6 +62,7 @@ end
 # Spa Welcome
 
 def spa_heading
+    self_clear
     arter = Artii::Base.new
     puts arter.asciify("Welcome to").blue
     arter = Artii::Base.new
@@ -84,3 +98,34 @@ def stack_overflow
     puts arter.asciify("Enlightenment").blue
 end 
 
+#Opening welcome message
+
+def welcome_message
+    arter = Artii::Base.new
+    puts arter.asciify("Welcome  to  Coder  Detox  Spa !").blue
+end 
+
+# Quiz welcome message
+def welcome_quiz
+    self_clear
+    arter = Artii::Base.new
+    puts arter.asciify("Welcome to the Programming Quiz!").blue
+end
+
+# Quiz final score and congratulations message
+
+def congratulations
+    self_clear
+    arter = Artii::Base.new
+    puts arter.asciify("Congratulations!")
+    arter = Artii::Base.new
+    puts arter.asciify("You have earned #{$wallet.wallet} spa points.")
+end 
+
+# GOODBYE HEADING
+
+def goodbye_heading
+    self_clear
+    arter = Artii::Base.new
+    puts arter.asciify("SEE  YOU  NEXT  TIME !").blue
+end 
