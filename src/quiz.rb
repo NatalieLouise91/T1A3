@@ -1,3 +1,4 @@
+require 'colorize'
 # Error handling 
 
 # invalid input for questionnaire

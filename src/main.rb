@@ -12,32 +12,7 @@ require "pastel"
 require_relative './methods/aesthetics'
 require_relative './methods/userinfo'
 
-# -------------------------------------------------------ERROR HANDLING----------------------------------------------------------------------
 
-# Empty name string error message 
-class InvalidNameError < StandardError
-end 
-
-def valid_name(name)
-    name = name.strip
-    raise InvalidNameError, "Name must not be empty" if name.empty?
-    name
-end 
-
-# invalid input error handling 
-
-class InvalidInputError < StandardError
-    attr_reader :action
-
-    def initialize(msg ="Invalid input entered.")
-        @invalid = invalid
-        super (message)
-    end 
-end 
-def invalid_input(answer)
-    raise InvalidInputError, "Please use 'true' or 'false' answers" 
-    answer 
-end
 
 # ---------------------------------------------------------QUIZ CODE------------------------------------------------------------------------
 
@@ -167,7 +142,7 @@ treatment2 = Treatment.new(
      150),
 treatment3 = Treatment.new(
     "New Hair, Who Dis? 🍫 💇‍".magenta, 
-    "Sit back, relax and enjoy a relaxing hair and scalp treatment. Your coder friends won't be able to recognise you after this haircut.\n 
+    "Sit back, relax and enjoy a relaxing hair and scalp treatment.\n Your coder friends won't be able to recognise you after this haircut.\n 
     You will be the envy of the entire class. New Hair, Who Dis includes:\n
         - a haircut\n
         - a choice of vibrant hairdye\n
@@ -236,7 +211,7 @@ owing = []
 welcome_message
 puts "Please enter your name:"
 name = gets.strip.to_s
-valid_name(name)
+invalid_name(name)
 puts "Hello #{name}, welcome to the Coder Detox Spa! You can earn points to use at the Coder Detox Spa by completing a quiz on programming 🤓.\n\n"
 
 # while true 

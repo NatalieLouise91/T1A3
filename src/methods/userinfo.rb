@@ -1,3 +1,31 @@
+
+# -------------------------------------------------------ERROR HANDLING----------------------------------------------------------------------
+
+# Empty name string error message 
+class InvalidNameError < StandardError
+end 
+
+def invalid_name(name)
+    name = name.strip
+    raise InvalidNameError, "Name must not be empty" if name.empty?
+    name
+end 
+
+# invalid input error handling 
+
+class InvalidInputError < StandardError
+    attr_reader :action
+
+    def initialize(msg ="Invalid input entered.")
+        @invalid = invalid
+        super (message)
+    end 
+end 
+def invalid_input(answer)
+    raise InvalidInputError, "Please use 'true' or 'false' answers" 
+    answer 
+end
+
 # --------------------------------------------------METHODS FOR PROGRESSBARS---------------------------------------------------------------------
 #CLOSING PROGRESSBAR - before application exits
 
