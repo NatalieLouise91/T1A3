@@ -238,7 +238,7 @@ puts "Hello #{name}, welcome to the Coder Detox Spa! You can earn points to use 
 while true
     self_clear
     prompt = TTY::Prompt.new
-    answer = prompt.select("What would you like to do?\n\n", %w(Start\ Quiz  Check\ Balance Treatments\ Available Create\ Booking Change\ Booking Display\ Booking Checkout Exit)) do
+    answer = prompt.select("What would you like to do?\n\n", %w(Start\ Quiz  Check\ Balance Treatments\ Available Create\ Booking Change\ Booking Display\ Booking Checkout\ Menu Exit)) do
 
     case answer
     when  "Start Quiz"
@@ -435,7 +435,7 @@ while true
             puts "Please select checkout from the main menu to finalise your payment.\n\n"
         end
         sleep(4)
-    when "Checkout" 
+    when "Checkout Menu" 
         while true 
             answer = prompt.select("Please select from the following options:\n\n", %w(Check\ Balance Amount\ Owing Checkout Main\ Menu)) do
         
@@ -450,22 +450,30 @@ while true
                     puts "You currently have #{$wallet.wallet} spa points."
                 end
             when "Amount Owing"
-                puts "#{name}, you owe #{owing[0]} today"
+                if owing.empty?
+                    puts "You do not owe anything today."
+                else
+                    puts "#{name}, you owe #{owing[0]} today"
+                end
             when "Checkout"
                 finalise_heading
-                sum = buy($wallet.wallet, owing[0])
-                if sum < 0 
-                    puts "Im sorry #{name}, it appears that you do not have enough spa points for this treatment.\n\n"
-                    puts "You only have #{$wallet.wallet} spa points and you need #{owing[0]} spa points.\n\n"
-                    puts "Remember, practice makes perfect, #{name}.\n\n" 
-                    puts "YOU CAN EITHER:\n\n" 
-                    puts "complete the quiz again to earn more spa points to secure your booking.\n\n"
-                    puts "OR\n\n"
-                    puts "change #{booking[:treatment]} for another treatment under the change booking option\n\n"
+                if booking.empty?
+                    puts "Sorry #{name}, it appears that you do not have a booking yet. Select Create Booking from the main menu to change that!\n\n"
                 else 
-                    puts "Thank you for choosing Coder Detox Spa, #{name}. We look forward to seeing you on #{booking[:day]} at #{booking[:time]}."
-                end 
+                sum = buy($wallet.wallet, owing[0])
+                    if sum < 0 
+                        puts "Im sorry #{name}, it appears that you do not have enough spa points for this treatment.\n\n"
+                        puts "You only have #{$wallet.wallet} spa points and you need #{owing[0]} spa points.\n\n"
+                        puts "Remember, practice makes perfect, #{name}.\n\n" 
+                        puts "YOU CAN EITHER:\n\n" 
+                        puts "complete the quiz again to earn more spa points to secure your booking.\n\n"
+                        puts "OR\n\n"
+                        puts "change #{booking[:treatment]} for another treatment under the change booking option\n\n"
+                    else 
+                        puts "Thank you for choosing Coder Detox Spa, #{name}. We look forward to seeing you on #{booking[:day]} at #{booking[:time]}."
+                    end 
                 break
+                end
             end 
         end
             if answer == "Main Menu"
