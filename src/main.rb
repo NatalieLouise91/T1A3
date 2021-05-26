@@ -206,9 +206,29 @@ owing = []
 # Welcoming user section 
 
 welcome_message
-puts "Please enter your name:"
-name = gets.strip.to_s
-invalid_name(name)
+puts "Hello, please enter in your name:"
+
+name_attempt = 0
+while name_attempt < 4
+    name = gets.strip.capitalize
+    if name != "" 
+        self_clear
+        puts "It's nice to meet you #{name}!"
+        break
+    else
+        name_attempt += 1
+        if name_attempt == 4
+            self_clear
+            puts "Keep your secrets then, we will now call you Incognito 🕵️"
+            name = "Incognito"
+        else
+            puts "Sorry, please enter in a name:"
+        end
+    end
+end
+
+sleep(4)
+self_clear
 puts "Hello #{name}, welcome to the Coder Detox Spa! You can earn points to use at the Coder Detox Spa by completing a quiz on programming 🤓.\n\n"
 
 # while true 
@@ -236,7 +256,7 @@ while true
             self_clear
             display_balance_heading
             if $wallet == nil
-                puts "You don't have any spa points yet.\n\n"
+                puts "You don't have any spa points yet. Please complete the quiz to earn points.\n\n"
             else
                 puts "You currently have #{$wallet.wallet} spa points.\n\n"
             end
@@ -322,10 +342,14 @@ while true
     when  "Display Booking"
         self_clear
         display_booking_heading
-        if owing != nil
-            puts "You currently have a booking for #{booking[:treatment]} on #{booking[:day]} at #{booking[:time]}.\n\n"
-        else 
+        if booking.empty?
             puts "Sorry #{name}, it appears that you do not have a booking yet. Select create a booking to change that!"
+        # if owing != nil
+            # puts "You currently have a booking for #{booking[:treatment]} on #{booking[:day]} at #{booking[:time]}.\n\n"
+        # else 
+            # puts "Sorry #{name}, it appears that you do not have a booking yet. Select create a booking to change that!"
+        else 
+            puts "You currently have a booking for #{booking[:treatment]} on #{booking[:day]} at #{booking[:time]}.\n\n"
         end
     when  "Change Booking"
         # Change booking heading
