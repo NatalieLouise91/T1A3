@@ -211,18 +211,19 @@ puts "Hello, please enter in your name:"
 name_attempt = 0
 while name_attempt < 4
     name = gets.strip.capitalize
-    if name != "" 
+    if name != ""
         self_clear
         puts "It's nice to meet you #{name}!"
         break
     else
         name_attempt += 1
+        if name == ""
+            puts "I didn't quite catch that, please enter in a name:"
+        end
         if name_attempt == 4
             self_clear
             puts "Keep your secrets then, we will now call you Incognito 🕵️"
             name = "Incognito"
-        else
-            puts "Sorry, please enter in a name:"
         end
     end
 end
@@ -315,7 +316,7 @@ while true
             end
             end
     when  "Create Booking"
-        if owing != nil
+        if booking.empty? && $wallet != nil
         # Create a booking heading
         create_booking_heading
 
@@ -334,9 +335,12 @@ while true
         # Display to user their booking details
         print "You have now secured a booking for #{booking[:treatment]} on #{booking[:day]} at #{booking[:time]}.\n\n"
 
+        elsif $wallet == nil
+            puts "You don't have any spa points yet. You cannot make a booking without spa points."
+            puts "Before you can relax you must complete the programming quiz."
         else
-            puts "Thank you for waiting #{name}, it appears you already have a booking.\n 
-            If you would like to change your booking, please select Change Booking from the main menu."
+            puts "Thank you for waiting #{name}, it appears you already have a booking for #{booking[:treatment]} on #{booking[:day]} at #{booking[:time]}.\n" 
+            puts "If you would like to change your booking, please select Change Booking from the main menu."
         end
 
     when  "Display Booking"
@@ -344,10 +348,6 @@ while true
         display_booking_heading
         if booking.empty?
             puts "Sorry #{name}, it appears that you do not have a booking yet. Select create a booking to change that!"
-        # if owing != nil
-            # puts "You currently have a booking for #{booking[:treatment]} on #{booking[:day]} at #{booking[:time]}.\n\n"
-        # else 
-            # puts "Sorry #{name}, it appears that you do not have a booking yet. Select create a booking to change that!"
         else 
             puts "You currently have a booking for #{booking[:treatment]} on #{booking[:day]} at #{booking[:time]}.\n\n"
         end
@@ -355,7 +355,9 @@ while true
         # Change booking heading
         self_clear
         change_booking_heading
-        if owing != nil
+        if booking.empty?
+            puts "Sorry #{name}, it appears that you do not have a booking yet. Select Create Booking from the main menu to change that!"
+        else
             puts "You currently have a booking for #{booking[:treatment]} on #{booking[:day]} at #{booking[:time]}.\n\n"
             puts "This booking will be deleted.\n\n"
 
@@ -383,12 +385,11 @@ while true
             booking[:time] = answer
 
             # Message to user confirming the change in their booking
-            puts "You have now have a new booking for #{booking[:treatment]} on #{booking[:day]} at #{booking[:time]}.\n\n"
-            puts "This booking is secured, we look forward to seeing you on #{booking[:day]} at #{booking[:time]}."
-            
-        else  
-            "Sorry #{name}, it appears that you do not have a booking yet. Select create a booking to change that!"
+            puts "You now have a new booking for #{booking[:treatment]} on #{booking[:day]} at #{booking[:time]}.\n\n"
+            puts "This booking is secured, we look forward to seeing you on #{booking[:day]} at #{booking[:time]}."    
         end
+        # if booking[:treatment] == "A Tasty Treat"
+        #     puts ""
     end
     end
     if answer == "Exit"
@@ -430,7 +431,7 @@ while true
         puts "#{name}, you owe #{owing[0]} today"
     when "Checkout"
         sum = buy($wallet.wallet, owing[0])
-        if sum < 0
+        if sum < 0 
             puts "Im sorry #{name}, it appears that you do not have enough spa points for this treatment.\n\n"
             puts "Remember, practice makes perfect #{name}. You can complete the quiz again to earn more spa points."
         else 
