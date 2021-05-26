@@ -14,16 +14,17 @@ end
 # invalid input error handling 
 
 class InvalidInputError < StandardError
-    attr_reader :action
-
-    def initialize(msg ="Invalid input entered.")
-        @invalid = invalid
-        super (message)
-    end 
+    attr_reader :action 
 end 
+
 def invalid_input(answer)
-    raise InvalidInputError, "Please use 'true' or 'false' answers" 
-    answer 
+    begin 
+        if answer != "true" || answer != "false" 
+        raise InvalidInputError, "INVALID INPUT - Please use 'true' or 'false' answers"
+        end 
+    rescue InvalidInputError => e
+        puts e
+    end 
 end
 
 # --------------------------------------------------METHODS FOR PROGRESSBARS---------------------------------------------------------------------

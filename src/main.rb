@@ -83,21 +83,18 @@ end
 def Questionnaire(questions)
     answer = ""
     score = 0
-    attempts = 0
-        attempts = attempts || 0
-    begin
-    for question in questions
-        puts question.question
-        answer = gets.strip.downcase.to_s
-        if answer == question.answer
-            score += question.score
-        elsif answer == question.incorrect   
-            score += 0
-        else
-        raise InvalidInputError.new "Invalid input entered. Please use 'true' or 'false' answers."
-        end 
-    end
-    end 
+        for question in questions
+            puts question.question
+            answer = gets.strip.downcase.to_s
+            if answer == question.answer
+                score += question.score
+            elsif answer == question.incorrect   
+                score += 0
+            else 
+                # method raises an error message if true or false input is entered
+                invalid_input(answer)
+            end       
+        end
     return score
 end
 
