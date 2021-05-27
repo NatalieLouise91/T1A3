@@ -1,5 +1,5 @@
 # require 'rspec/autorun'
-require_relative "../quiz.rb"
+require_relative "../main.rb"
 require_relative "../methods/userinfo.rb"
 
 
@@ -42,11 +42,14 @@ describe 'questionnaire method' do
     
     # testing point allocation and scoring - if all questions answered correctly
     it 'should be able to return a score' do
-        expect (Questionnaire(questions)).to eq 400
+        expect (questionnaire(questions)).to eq 400
     end
 end
 
 # Rspec test for buy method used for treatment checkout 
+# this test is important to implement to ensure the checkout method correctly substracts the treatment price from the spa points
+
+# TEST ONE
 
 describe 'transaction' do
     it 'should be able to subtract one number from another number' do
@@ -54,10 +57,29 @@ describe 'transaction' do
     end
  end
 
-#  Respec tests for error handling in application
+ # TEST TWO
+
+ describe 'transaction' do
+    it 'should be able to subtract one number from another number' do
+        expect (buy(400, 400)).to be(0)      
+    end
+ end
+
+# Respec tests for error handling in application
+# this test is important as it ensures that invalid user input entered in the quiz section notifies the user of their error
+
+# TEST ONE
 
 describe 'invalid input error' do
     it 'should raise an InvalidInputError' do
         expect {invalid_input("kjlkj").to raise_error(InvalidInputError)}
+    end
+end
+
+# TEST TWO
+
+describe 'invalid input error' do
+    it 'should raise an InvalidInputError' do
+        expect {invalid_input("").to raise_error(InvalidInputError)}
     end
 end
