@@ -289,3 +289,9 @@ For pastel:
 The Coder Detox Spa application runs via the command line using a bash script file. After installing Ruby and the Gem dependencies, nagivate to the `/src` directory via your terminal. Once you are in the `/src` directory, you will be able to run the following command through your terminal to execute the program:
 
 `./run_app.sh`
+
+## **Referenced Sources**
+
+GitHub Docs. (n.d.). Cloning a repository. [online]. Available at: https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github/cloning-a-repository [Accessed: 27 May 2021].
+
+Ruby-lang.org. (2019). Download Ruby. [online] Available at: https://www.ruby-lang.org/en/downloads/ [Accessed 27 May 2021].
