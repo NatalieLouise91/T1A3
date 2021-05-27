@@ -1,5 +1,10 @@
-# **Software Development Plan** 
+# README DOCUMENTATION 
 
+# Link to Source Control Repository
+
+A link to my source control repository can be found [here](https://github.com/NatalieLouise91/T1A3)
+
+# **Software Development Plan** 
 
 ## **Coder Detox Spa Overview**
 
@@ -31,7 +36,7 @@ A scope limitation is that the application will provide the user with one set of
 
 ### **Target Audience** 
 
-The target audience has an interest in learning programming and requires an added incentive to increase their motivation to study new programming concepts. This application will be best suited to students who would like to test their coding knowledge in a fun and engaging way. Furthermore, although part 2 of the application, the Coder Detox Spa, is used as a study reward system for students, this framework can also be adapted and utilised by businesses wanting to provide an online booking service for their clients. 
+The target audience has an interest in learning programming and requires an added incentive to increase their motivation to study new programming concepts. This application will be best suited to students who would like to test their coding knowledge in a fun and engaging way. Furthermore, part 2 of the application, the Coder Detox Spa, is used as a study reward system for students once they have completed the quiz.
 
 ### **A Scenario of Application Usage** 
 
@@ -244,7 +249,7 @@ gem "tty-box", "~> 0.7.0"
 
 gem "pastel", "~> 0.8.0"
 
-You can install the required Ruby gems through the command line using the following command:
+You can install the required Ruby gems through the command line using the following commands:
 
 For tty-prompt: 
 
@@ -273,3 +278,9 @@ For tty-box:
 For pastel:
 
 `gem install pastel`
+
+### Running Coder Detox Spa
+
+The Coder Detox Spa application runs via the command line using a bash script file. After installing Ruby and the Gem dependencies, you will be able to run the following command through your terminal to execute the program:
+
+`./run_app.sh`
