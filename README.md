@@ -1,6 +1,6 @@
 # README DOCUMENTATION 
 
-# Link to Source Control Repository
+## Link to Source Control Repository
 
 A link to my source control repository can be found [here](https://github.com/NatalieLouise91/T1A3)
 
@@ -46,29 +46,43 @@ The user will initially be welcomed to Coder Detox Spa, and the application will
 
 ### **Programming Quiz**
 
+![Quiz](./docs/quiz.png)
+
 The programming quiz enables the user to test out their knowledge on programming concepts. When the user answers a question correctly, they will receive 50 spa wallet points. The programming quiz will be implemented using a class called quiz, which holds an array of questions. Furthermore, a method called questionnaire will be utilised to loop through the questions array and allocate a score according to how many questions the user answers correctly. If the user does not earn many points during the first quiz, they have three attempts to retake it. After finalising the user score, the user score will be converted and held in a global variable called Wallet. 
 
 ### **List of Treatments**
+
+![List of Treatments](./docs/treatment5.png)
 
 The list of treatments enables the user to either view a complete list of the available treatments at the Coder Detox Spa or select individual treatments. Each treatment will include a name, a description and a price. This provides the user with what is involved in the treatment and how many spa points they need to book the treatment. The list of treatments will be implemented using a hash key-value pair that is then added to an array. For example, treatment 2 is an item in the treatments array, which is a hash that has the keys of name, description and price and their associated values. The program iterates over the treatments array and prints to the screen for the user to view to display the complete list of treatments.    
 
 ### **Create a Booking**
 
+![Create a Booking](./docs/create_booking.png)
+
 Create a booking allows users to create a booking for a treatment at the Coder Detox Spa. Through the menu prompts, the user will be able to firstly select a treatment, secondly, select a day they would like to have that treatment and thirdly, select a time of day that best suited them. After the user has selected all the above information, they will receive a message to the screen stating that they have secured a booking for their chosen treatment, day and time. Create a booking will be implemented by storing each piece of user input into a hash. Storing the information in a hash will allow the program to display the booking details when the user requests them easily. Furthermore, a booking class will also be implemented to store the booking in a secondary location as booking1. When a hash is produced, the values stored as a new booking class object. The values in the booking class will be utilised when the user wants to change or pay for a booking.  
 
 ### **Display Future Appointments**
+
+![Display Future Appointments](./docs/current_booking.png)
 
 The Display Future Appointments feature will allow users to view upcoming appointments created via the create bookings feature. This feature will utilise the created hash with the stored values of treatment, day and time.  The program will access the bookings hash to print any current bookings to the screen. Furthermore, if the user does not have any upcoming bookings, the application will divert the user to the create bookings feature. 
 
 ### **Change Bookings** 
 
+![Change Bookings](./docs/change_booking.png)
+
 The change bookings feature will allow users to change existing bookings to a new booking. This feature will be predominantly implemented by using the already built-in bookings hash. The user will be prompted with a message that asks them if they would like to change their booking. If the user selects yes to this question, the hash values stored in the original booking will be deleted. Next, the user will be prompted to choose a treatment, day and time for their new booking. Once the user has selected a treatment, day and time these values will be added to the bookings hash and a new object called booking2 will be added to the booking class.  Finally, a message will be put to the screen stating the user's original booking, which has been exchanged for the new booking. To display the original booking and the new booking, the program will access the information stored in the class objects booking1 and booking2. 
 
 ### **Check Wallet Balance**
 
+![Check Wallet Balance](./docs/balance.png)
+
 The check wallet balance feature enables the user to view their existing spa points balance, which will notify the user of what treatments they can afford. The check wallet balance feature will be implemented using a class called spa points, which holds the quiz score as a spa point object. This spa point class object will then be converted to a global variable, which can be used across ruby files in the application. When the user selects check wallet balance from the menu, a message will print to the screen showing the user their current balance by utilising the wallet object under the spa point class. 
 
 ### **Checkout**
+
+![Checkout](./docs/finalise.png)
 
 The checkout feature enables the user to finalise payment for their booked treatment. Furthermore, from the checkout menu, the user is able to view how much is owing to their account and how many spa points they have accumulated. The code implemented in this feature includes a transaction method that calculates the treatment price subtracted from their spa points. The display amount owing function is implemented through utilising the treatment class objects, specifically the treatment price attribute, which is subsequently added to an array called owing. The display balance uses the code framework implemented in the check balance feature. Additionally, if the user cannot pay for their treatment, they will be redirected to either retake the quiz to earn more points or change their booking to a more affordable treatment.  
 
@@ -175,7 +189,7 @@ All selections are made utilising the tty-prompt gem
 
 -	Redirects the user to the main menu
 
-5.	Exit
+#### Exit
 
 - Farewells the user and exits the application
 
@@ -234,7 +248,7 @@ More of my Trello Board and Implementation Plan can be found [here](https://trel
 
 ### **Installation Instructions**
 
-1. You will need Ruby installed on your computer to run this program. Instructions on how to install Ruby can be found [here](https://www.ruby-lang.org/en/downloads/)
+1. You will need Ruby installed on your computer to run this program. Instructions on how to install Ruby can be found [here](https://www.ruby-lang.org/en/downloads/).
 
 2. In addition to Ruby, the following Ruby Gem dependencies will need to be installed to successfully run Coder Detox Spa:
 
@@ -286,7 +300,19 @@ For pastel:
 
 ### Running Coder Detox Spa
 
-The Coder Detox Spa application runs via the command line using a bash script file. After installing Ruby and the Gem dependencies, nagivate to the `./src` directory via your terminal. Once you are in the `./src` directory, you will be able to run the following command through your terminal to execute the program:
+The Coder Detox Spa application runs via the command line using a bash script file. After installing Ruby and the Gem dependencies, complete the following steps:
+
+1. Open your terminal: 
+
+2. Change directories to a directory that holds the repository:
+
+`cd NatalieBottema_t1a3`
+
+3. Change directories to the source directory:
+
+  `cd src` 
+  
+4. Once you are in the source directory, run the following command to execute the program:
 
 `./run_app.sh`
 
