@@ -286,7 +286,7 @@ For pastel:
 
 ### Running Coder Detox Spa
 
-The Coder Detox Spa application runs via the command line using a bash script file. After installing Ruby and the Gem dependencies, nagivate to the `/src` directory via your terminal. Once you are in the `/src` directory, you will be able to run the following command through your terminal to execute the program:
+The Coder Detox Spa application runs via the command line using a bash script file. After installing Ruby and the Gem dependencies, nagivate to the `./src` directory via your terminal. Once you are in the `./src` directory, you will be able to run the following command through your terminal to execute the program:
 
 `./run_app.sh`
 
