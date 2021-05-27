@@ -227,13 +227,16 @@ The implementation of the project was assisted by utilising a Trello board by Tr
 ![Checkout Feature](./docs/checkout_implementation_plan.png)
 
 
+More of my Trello Board and Implementation Plan can be found [here](https://trello.com/b/pnZzP4JJ/terminal-application)
+
+
 ## **Help Documentation**
 
 ### **Installation Instructions**
 
-You will need Ruby installed on your computer to run this program. Instructions on how to install Ruby can be found [here](https://www.ruby-lang.org/en/downloads/)
+1. You will need Ruby installed on your computer to run this program. Instructions on how to install Ruby can be found [here](https://www.ruby-lang.org/en/downloads/)
 
-In addition to Ruby, the following Ruby Gem dependencies will need to be installed to successfully run Coder Detox Spa:
+2. In addition to Ruby, the following Ruby Gem dependencies will need to be installed to successfully run Coder Detox Spa:
 
 gem "tty-prompt", "~> 0.23.1"
 
@@ -279,8 +282,10 @@ For pastel:
 
 `gem install pastel`
 
+3. You will need to clone this repository on to your local computer. You can copy the repository by selecting the green clone button on the top right hand corner underneath settings. This link will give you the option to copy the SSH link and download via the command line or download as a zip file. You can find more information on cloning a repository [here](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github/cloning-a-repository).
+
 ### Running Coder Detox Spa
 
-The Coder Detox Spa application runs via the command line using a bash script file. After installing Ruby and the Gem dependencies, you will be able to run the following command through your terminal to execute the program:
+The Coder Detox Spa application runs via the command line using a bash script file. After installing Ruby and the Gem dependencies, nagivate to the `/src` directory via your terminal. Once you are in the `/src` directory, you will be able to run the following command through your terminal to execute the program:
 
 `./run_app.sh`
