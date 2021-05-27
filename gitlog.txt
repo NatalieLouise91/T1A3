@@ -1,0 +1,239 @@
+commit fe69766dd2e7ee6967f2979d81451a40329152c3
+Author: NatalieLouise91 <natalie936@hotmail.com>
+Date:   Thu May 27 15:18:24 2021 +1000
+
+    added images of application to readme file
+
+commit 7eaddc6859058c7b41478cd50e16ff066611d094
+Author: NatalieLouise91 <natalie936@hotmail.com>
+Date:   Thu May 27 14:19:47 2021 +1000
+
+    fixed failured tests in rspec test, renamed file
+
+commit a4de6b4eb940538c99693f328d1e06c5799c59b8
+Author: NatalieLouise91 <natalie936@hotmail.com>
+Date:   Thu May 27 13:58:35 2021 +1000
+
+    updated rspec file, consolidated files into one named testing_files, added additional comments in file
+
+commit 53569c9b6d2400783163a928cd6475347a6821a8
+Author: NatalieLouise91 <natalie936@hotmail.com>
+Date:   Thu May 27 13:44:23 2021 +1000
+
+    combed through main file to add in additional comments and fix style and convention issues.
+
+commit 5902be21369c3ddbe25305ed0842dbd9ac8ea4fe
+Author: NatalieLouise91 <natalie936@hotmail.com>
+Date:   Thu May 27 12:16:43 2021 +1000
+
+    amended slide deck to include an image of trello board
+
+commit 6061f068879b5a2f7ed311e251133790308c1c1a
+Author: NatalieLouise91 <natalie936@hotmail.com>
+Date:   Thu May 27 11:57:21 2021 +1000
+
+    added referenced sources into README file
+
+commit 32a3310259547b84ad0c3c617c3abe845fedd5ac
+Author: NatalieLouise91 <natalie936@hotmail.com>
+Date:   Thu May 27 11:42:03 2021 +1000
+
+    updated installation and running application instructions to provide user with more help cloning repository running script file
+
+commit 9bb526bb506675a1f6b154b03de41e87db86988e
+Author: NatalieLouise91 <natalie936@hotmail.com>
+Date:   Thu May 27 10:36:52 2021 +1000
+
+    updated README file to include repo link and instructions on how to run application
+
+commit 530cf61c8a5fc7b7525b9c398344cbb1543db7b5
+Author: NatalieLouise91 <natalie936@hotmail.com>
+Date:   Thu May 27 10:08:07 2021 +1000
+
+    added a shell script for users to execute the program, converted slide deck to pdf format
+
+commit 3833630de307cc403812d48d20c18b43ae03c4d1
+Author: NatalieLouise91 <natalie936@hotmail.com>
+Date:   Thu May 27 00:45:23 2021 +1000
+
+    removed redundant file updated README file with written work
+
+commit 3d477697c1f397b5c0ca5aa97a5dd3f93ac73333
+Author: NatalieLouise91 <natalie936@hotmail.com>
+Date:   Wed May 26 17:09:21 2021 +1000
+
+    refactored checkout feature to enable users to go back to the main menu.
+
+commit d10af1826e58e667d5d0cd01875a471159bb3e4c
+Author: NatalieLouise91 <natalie936@hotmail.com>
+Date:   Wed May 26 13:45:01 2021 +1000
+
+    Completed rspec test on Invalid Input Error method
+
+commit 27572a93ad390e103ef6363ed4bbcabf4fdf6826
+Author: NatalieLouise91 <natalie936@hotmail.com>
+Date:   Wed May 26 11:44:39 2021 +1000
+
+    added error handling for user name. fixed display booking error, when no bookings were recorded.
+
+commit 8e504338a1c088c11c7c1764e1800a6e96a8a922
+Author: NatalieLouise91 <natalie936@hotmail.com>
+Date:   Wed May 26 11:02:10 2021 +1000
+
+    updated invalidinput error handling for quiz feature
+
+commit 26a085d045d05c0f65164a4db263b2a885f4a03d
+Author: NatalieLouise91 <natalie936@hotmail.com>
+Date:   Tue May 25 22:20:54 2021 +1000
+
+    added presentation slides
+
+commit 04270c72f12e92e3492daa07015342baf3e828ec
+Author: NatalieLouise91 <natalie936@hotmail.com>
+Date:   Tue May 25 22:19:25 2021 +1000
+
+    added rspec tests on buy method, error handling and quiz scoring
+
+commit a8bfb80adb7fbbd12cca286d3e34d8246f697f89
+Author: NatalieLouise91 <natalie936@hotmail.com>
+Date:   Mon May 24 22:38:24 2021 +1000
+
+    Changed styling of application with tty-box added presentation slides
+
+commit b801fc02d300d7a60db0d3a16da1934ffd7cd304
+Author: NatalieLouise91 <natalie936@hotmail.com>
+Date:   Mon May 24 15:49:42 2021 +1000
+
+    Created new methods for headings and boxes which form a border around content. Implemented methods to create a certain design.
+
+commit efe2a9bb5783f213a6fc01d0f0b9700d0fada78b
+Author: NatalieLouise91 <natalie936@hotmail.com>
+Date:   Mon May 24 11:24:14 2021 +1000
+
+    Added checkout looping menu for checkout feature for booked treatments
+
+commit ccfc97d756a9e55342a7356019d90c168e1d38a4
+Author: NatalieLouise91 <natalie936@hotmail.com>
+Date:   Sun May 23 22:29:18 2021 +1000
+
+    consolidated files into one main file for a better user experience. User has option to cycle through menu now.
+
+commit b207522632431c7780efb99d00bf5d0a4c135fd5
+Author: NatalieLouise91 <natalie936@hotmail.com>
+Date:   Sun May 23 16:45:48 2021 +1000
+
+    merged quiz file with main file for a better user experience. User can now complete the quiz multiple times.
+
+commit ff0969b7008d9a759d143b51271125fb927cfccc
+Author: NatalieLouise91 <natalie936@hotmail.com>
+Date:   Sun May 23 11:36:53 2021 +1000
+
+    added new ruby gems, tty-font, tty-color, tty-progressbar, tty-box and pastel
+
+commit afb7754b2db79e8777a3ed5f6bed45bcfd12892e
+Author: NatalieLouise91 <natalie936@hotmail.com>
+Date:   Sun May 23 10:44:58 2021 +1000
+
+    removed json file, added methods folder to contain aesthetics file & user info file, refactored treatments file to include a while loop for menu options
+
+commit 5bab3f30d836052840f5eb5c31da0e1e8ff31e5c
+Author: NatalieLouise91 <natalie936@hotmail.com>
+Date:   Fri May 21 13:52:58 2021 +1000
+
+    test run through code, refactored code for better usability
+
+commit 8fc55d0b0a8ee3dcdc527c89ef41b340d1ca40bc
+Author: NatalieLouise91 <natalie936@hotmail.com>
+Date:   Fri May 21 10:32:53 2021 +1000
+
+    enabled quiz score to convert to wallet points that could be used across all files
+
+commit 2e493216f727756a4ff732558576e53a3d981776
+Author: NatalieLouise91 <natalie936@hotmail.com>
+Date:   Thu May 20 21:49:12 2021 +1000
+
+    refactored treatment file to create a class of treatments
+
+commit 86fe886e763044705855640008096541ec3b73b2
+Author: NatalieLouise91 <natalie936@hotmail.com>
+Date:   Thu May 20 16:47:47 2021 +1000
+
+    updated bookings file to include a bookings class and a create bookings method and a change bookings method.
+
+commit d7a5cb9825ab696e7567634dbf0a1d0adbe0f533
+Author: NatalieLouise91 <natalie936@hotmail.com>
+Date:   Thu May 20 15:39:20 2021 +1000
+
+    added create a booking to bookings file
+
+commit f0e84ca4023c959efadf88ea98f4cae086795e3f
+Author: NatalieLouise91 <natalie936@hotmail.com>
+Date:   Thu May 20 13:18:55 2021 +1000
+
+    added styling through artii, lolize, and colorize to quiz file
+
+commit b46f107091db3a1e373656df8cc867a12cd3b829
+Author: NatalieLouise91 <natalie936@hotmail.com>
+Date:   Thu May 20 12:31:13 2021 +1000
+
+    Added error handling to quiz file and main file to catch invalid input
+
+commit 4585b56c94d54d517d001b4cf6831b96651eb918
+Author: NatalieLouise91 <natalie936@hotmail.com>
+Date:   Thu May 20 10:51:11 2021 +1000
+
+    refactored main file and quiz file, removed redundant code placed in removed file for refactoring at a later stage
+
+commit 8fcead357b88cd3d5117fca9712c62adeabcdb8e
+Author: NatalieLouise91 <natalie936@hotmail.com>
+Date:   Thu May 20 09:45:45 2021 +1000
+
+    updated main menu on main file included a module, created a wallet file to store spa points.
+
+commit a42e074c232d712dd12236c4418c50546c9aa8e2
+Author: NatalieLouise91 <natalie936@hotmail.com>
+Date:   Wed May 19 17:37:11 2021 +1000
+
+    added new coderdetoxspa file, implemented ruby gems tty prompt, lolize &  colorize on quiz, main and treatments files.
+
+commit 9a07ee7dcd65dcd1f2c0ed921d9ed9704ad12d6d
+Author: NatalieLouise91 <natalie936@hotmail.com>
+Date:   Wed May 19 11:54:12 2021 +1000
+
+    modified quiz programming questions, added full  list of treatments into treatments file added an iterator for full list display and option to view individual treatments
+
+commit 3ab5c39690571e544bb2087120d84db63dec13a3
+Author: NatalieLouise91 <natalie936@hotmail.com>
+Date:   Tue May 18 20:52:15 2021 +1000
+
+    added JSON file to manage scheduled bookings added hash of treatments to treatments file
+
+commit b26182d7675d8e8dc7f2f94b7f63bdf3c2eab824
+Author: NatalieLouise91 <natalie936@hotmail.com>
+Date:   Tue May 18 09:41:20 2021 +1000
+
+    added a bundle gemfile and added two test files under spec directory for TDD
+
+commit 50fb1c0bb0bdfd4f8ee8b7f2e99bf25fc16ffcb2
+Author: NatalieLouise91 <natalie936@hotmail.com>
+Date:   Tue May 18 09:04:36 2021 +1000
+
+    added new files for bookings, treatments, and main menu
+
+commit fa1c181a460f0a9be34e97715f63c80d9564853d
+Author: NatalieLouise91 <natalie936@hotmail.com>
+Date:   Mon May 17 20:46:04 2021 +1000
+
+    added questions to quiz and set up a cumulative score
+
+commit 917966926de2a7480ae5726d8d761eff8a891a95
+Author: NatalieLouise91 <natalie936@hotmail.com>
+Date:   Mon May 17 20:43:27 2021 +1000
+
+    created quiz file for part 1 of application
+
+commit 8ed30f2ef68f0ca611c30de9bef3410c478ec43f
+Author: NatalieLouise91 <natalie936@hotmail.com>
+Date:   Mon May 17 20:37:44 2021 +1000
+
+    first commit
