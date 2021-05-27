@@ -80,7 +80,7 @@ end
 
 # QUESTIONNAIRE METHOD - which loops through questions array and conditionally assigns points
 
-def Questionnaire(questions)
+def questionnaire(questions)
     answer = ""
     score = 0
         for question in questions
@@ -199,7 +199,9 @@ class Booking
 end
 
 #------------------------------------------------------------------BOOKINGS HASH---------------------------------------------------------------------
+# stores bookings when the user selects create booking or change booking from the menu
 booking = {}
+# stores the amount the user has owing from their treatment booking
 owing = []
 # -----------------------------------------------------------------MAIN APPLICATION----------------------------------------------------------------
 
@@ -207,6 +209,8 @@ owing = []
 
 welcome_message
 puts "Hello, please enter in your name:"
+
+# Error handling for incorrect user input of user name. The user has four name attempts before they are assigned the default name of 'Incognito' 
 
 name_attempt = 0
 while name_attempt < 4
@@ -228,13 +232,14 @@ while name_attempt < 4
     end
 end
 
-sleep(4)
+sleep(2)
 self_clear
+
+# User is welcomed to the application and informed about how the application works 
+
 puts "Hello #{name}, welcome to the Coder Detox Spa! You can earn points to use at the Coder Detox Spa by completing a quiz on programming 🤓.\n\n"
 
-# while true 
-    # puts "Start your journey now" do
-# WHILE LOOP - user can cycle through menu options until they decide to exit application
+# WHILE LOOP - user can cycle through menu options until they decide to exit the application. Upon selecting 'Exit', the while loop breaks and the program reaches end of input. 
 while true
     self_clear
     prompt = TTY::Prompt.new
@@ -242,11 +247,12 @@ while true
 
     case answer
     when  "Start Quiz"
+        # runs the questionnaire method for user to complete the quiz
             loading_quiz
             self_clear
             quiz_header
             quiz_instructions
-            wallet = Questionnaire(questions)
+            wallet = questionnaire(questions)
             wallet = SpaPoints.new(wallet)
             $wallet = SpaPoints.new(wallet)
             $wallet = wallet
@@ -270,11 +276,13 @@ while true
             while true
                 prompt = TTY::Prompt.new
                 answer = prompt.select("Which treatment would you like to view?\n\n", %w(Full\ List\ of\ Treatments A\ Tasty\ Treat Detox\ Facial New\ Hair,\ Who\ Dis? Coder\ Special Stack\ Overflow\ Enlightenment Main\ Menu)) do
+                # shows full list of treatments
                 if answer == "Full List of Treatments"
                     self_clear
                     treatment_box
                     display_all_treatments(treatments)
                     footer_box
+                # VVV shows individual treatments VVV
                 elsif answer == "A Tasty Treat"
                     self_clear
                     framing_box_small
@@ -317,6 +325,7 @@ while true
                     sleep(3)
                 end 
             end
+            # breaks while loop and returns to the main menu
             if answer == "Main Menu"
                 self_clear
                 break
@@ -339,9 +348,11 @@ while true
         answer = prompt.select("Please select a time you would like to have your treatment:\n\n", %w(9:00 10:00 11:00 12:00 13:00 14:00 15:00 16:00 17:00))
         booking[:time] = answer
 
+        # If the user does not have any spa points they are prompted to take the quiz
         elsif $wallet == nil
             puts "You don't have any spa points yet. You cannot make a booking without spa points.\n\n"
-            puts "Before you can relax you must complete the programming quiz.\n\n"
+            puts "Before you can relax you must complete the programming quiz.\n\n"            
+        # If the user already has a booking they are prompted to select change booking from main menu
         else
             puts "Thank you for waiting #{name}, it appears you already have a booking for #{booking[:treatment]} on #{booking[:day]} at #{booking[:time]}.\n\n" 
             puts "If you would like to change your booking, please select Change Booking from the main menu.\n\n"
@@ -349,6 +360,7 @@ while true
         # Booking details are stored in a new class object called booking1 
         booking1 = Booking.new(booking[:treatment],booking[:day],booking[:time])
 
+        # adds price to owing array according to treatment type
         if booking[:treatment] == "A Tasty Treat"
             owing << treatment1.price
         elsif booking[:treatment] == "Detox Facial"
@@ -361,7 +373,7 @@ while true
             owing << treatment5.price
         end
 
-         # Display to user their booking details
+         # Display to user their booking details and to finalise their booking through selecting checkout in the main menu
         if booking.any?
             puts "You have now secured a booking for #{booking1.treatment} on #{booking1.day} at #{booking1.time}.\n\n"
             puts "You owe a total of #{owing[0]} spa points for #{booking1.treatment}.\n\n" 
@@ -371,15 +383,16 @@ while true
     when  "Display Booking"
         self_clear
         display_booking_heading
+        # Shows user their booking. If they don't have a booking, they are told to create a booking from the main menu
         if booking.empty?
             puts "Sorry #{name}, it appears that you do not have a booking yet. Select create a booking to change that!\n\n"
         else 
             puts "You currently have a booking for #{booking[:treatment]} on #{booking[:day]} at #{booking[:time]}.\n\n"
         end
     when  "Change Booking"
-        # Change booking heading
         self_clear
         change_booking_heading
+        # If the booking is empty the user is told that they do not have a booking to change
         if booking.empty?
             puts "Sorry #{name}, it appears that you do not have a booking yet. Select Create Booking from the main menu to change that!\n\n"
         else
@@ -407,15 +420,16 @@ while true
             answer = prompt.select("Please select a new time that you would like to have your treatment:\n\n", %w(9:00 10:00 11:00 12:00 13:00 14:00 15:00 16:00 17:00))
             
             # New time is store in the bookings hash
-            booking[:time] = answer
-
-            
+            booking[:time] = answer    
         end
 
+        # deletes original treatment price value from owing array
         owing.shift()
 
+        # creates new booking object to booking class
         booking2 = Booking.new(booking[:treatment],booking[:day],booking[:time])
 
+        # adds price to owing array according to treatment type
         if booking[:treatment] == "A Tasty Treat"
             owing << treatment1.price
         elsif booking[:treatment] == "Detox Facial"
@@ -436,10 +450,12 @@ while true
         end
         sleep(4)
     when "Checkout Menu" 
+        # while loop for checkout menu to allow the user to select multiple times. while loop breaks when user selects main menu. 
         while true 
             answer = prompt.select("Please select from the following options:\n\n", %w(Check\ Balance Amount\ Owing Checkout Main\ Menu)) do
         
             case answer
+                # Check Balance to either show balance or tell the user that they do not have any points
             when "Check Balance"
                 loading_balance
                 self_clear
@@ -449,6 +465,7 @@ while true
                 else
                     puts "You currently have #{$wallet.wallet} spa points."
                 end
+                # Amount Owing shows the user the cost of their treatment or if they have yet to book a treatment tells them they have nothing owing 
             when "Amount Owing"
                 if owing.empty?
                     puts "You do not owe anything today."
@@ -456,6 +473,7 @@ while true
                     puts "#{name}, you owe #{owing[0]} today"
                 end
             when "Checkout"
+                # Checkout finalises users payment if they have a booking, if they do not have a booking they are told to create a booking from the main menu
                 finalise_heading
                 if booking.empty?
                     puts "Sorry #{name}, it appears that you do not have a booking yet. Select Create Booking from the main menu to change that!\n\n"
@@ -476,6 +494,7 @@ while true
                 end
             end 
         end
+        # Main menu returns user to the main menu
             if answer == "Main Menu"
                 self_clear
               break  
@@ -483,6 +502,7 @@ while true
         end
     end
 end
+    # Final goodbye and exits the application
     if answer == "Exit"
         goodbye_heading
                 puts "Have a wonderful day, #{name}. I hope you have enjoyed your time at Coder Detox Spa!" 
@@ -490,5 +510,3 @@ end
         break
     end 
 end  
-
-

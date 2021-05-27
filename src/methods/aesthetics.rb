@@ -7,14 +7,6 @@ def self_clear
     print "\e[2J\e[f"
 end 
 
-#back to the main menu function
-
-def return_menu
-    puts "Feel free to press any key to return to the main menu"
-    $stdin.getch
-    self_clear
-end
-
 # ----------------------------------------------------------APPLICATION HEADINGS-------------------------------------------------------------
 
 def treatments_heading
