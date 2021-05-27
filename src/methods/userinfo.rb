@@ -1,16 +1,6 @@
 
 # -------------------------------------------------------ERROR HANDLING----------------------------------------------------------------------
 
-# Empty name string error message 
-class InvalidNameError < StandardError
-end 
-
-def invalid_name(name)
-    name = name.strip
-    raise InvalidNameError, "Name must not be empty" if name.empty?
-    name
-end 
-
 # invalid input error handling 
 
 class InvalidInputError < StandardError
@@ -67,6 +57,8 @@ def loading_spa
         bar.advance(1)
     end
 end
+
+# ----------------------------------------------------------------------------Checkout Method---------------------------------------------------------------------------------------------
 
 # Transaction method
 def buy(num1, num2)
